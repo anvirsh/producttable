@@ -6,27 +6,22 @@
 
         <div class="flex flex-wrap items-center">
             <div class="flex flex-shrink">
-			            <div class="flex">
-                            <!-- Logo -->
-                            <div class="flex-shrink-0 flex items-center">
-                                
-                                    <img  :src="foto" />
-                                 
-                            </div>
- 
-                        </div>
-			
-                <a href="#">
-                    <span class="text-xl pl-2"><i class="em em-grinning"></i></span>
-                </a>
+			     <div class="flex">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <inertia-link :href="route('start')">
+	                        <img  :src="foto" />
+	                    </inertia-link> 
+                    </div> 
+                 </div>
             </div>
-                    <div class="flex-1 md:flex-none md:mr-1">
-                        <a class="inline-block py-1 px-4" href="#">
-						  <inertia-link :href="route('products')">
-	                         <span style="color:red"> ПРОДУКТЫ </span>
-	                      </inertia-link>						   
-						</a>
-                    </div>
+			<div class="flex-1 md:flex-none md:mr-1">
+				<a class="inline-block py-1 px-4" href="#">
+				  <inertia-link :href="route('products')">
+					 <span style="color:red"> ПРОДУКТЫ </span>
+				  </inertia-link>						   
+				</a>
+			</div>
             <div class="flex flex-1 md:w-1/3 justify-center md:justify-start text-white px-2">
              </div>
 

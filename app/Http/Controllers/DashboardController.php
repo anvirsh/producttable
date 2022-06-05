@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Validator;
+Use App\Jobs\SendEmailCreateProductJob;
 
 
 class DashboardController extends BaseController
@@ -48,6 +49,9 @@ class DashboardController extends BaseController
 		$newMod->status = $request->status;
 		$newMod->data = $request->data;
 		$newMod->save();
+		if($request->sendmail === true){//***в->очередь оповещение***
+	      SendEmailCreateProductJob::dispatch('Создан продукт - '.$newMod->name); 
+		}		
         return Redirect::route('products')->with('success', 'Товар создан.');
     }
 
@@ -82,3 +86,4 @@ class DashboardController extends BaseController
     }
 		
 }
+

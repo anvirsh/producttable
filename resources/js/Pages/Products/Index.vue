@@ -5,7 +5,10 @@
 	{{success}} &nbsp; &nbsp; 
 	  <span style="cursor:pointer; font-size:90%" @click='success=""' > x  </span>
 	</h1>	 
-    <div class="bg-white rounded-md shadow overflow-x-auto">
+    <div class="mb-6 flex justify-between">
+      <div class="bg-white rounded-md shadow overflow-x-12"> 
+	  
+	    <div class="bg-white rounded-md shadow overflow-x-auto">
 		  <table class="w-full whitespace-nowrap">
 			<tr class="text-left">
 			  <th class="px-6 pt-6 pb-4">Артикул</th>
@@ -48,9 +51,17 @@
 			</tr>
 		  </table>
 	  
-	  	<div class="border-t px-6 py-4" >
-	      <a class="btn-grey-800" :href="route('products.create')" > Добавить </a> 
+	  	  <div class="border-t px-6 py-4" >
+		    <span class="text-gray-400">Всего : {{products.length}} шт.</span>
+          </div>
         </div>
+	   
+      </div>
+	  <div class="pl-20 pt-10" >
+        <inertia-link class="btn-indigo" :href="route('products.create')"> 
+		   <input style="cursor:pointer" class="bg-blue-100 pb-2 w-20 rounded-md text-center font-bold" type="booton" value="Создать" /> 
+        </inertia-link>
+	  </div>	
     </div>
 
         <div class="mb-6 mt-8 flex justify-between items-center">              

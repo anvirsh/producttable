@@ -15,8 +15,8 @@ class BaseController extends Controller
 	
 	
   /////////////////////////////////////////////////////////////////////////////////////////////////
-  //Метод для функционала cмены ролей admina и usera (т.к. нет в базе таблицы Users)
-    public function flagadmin($flag){//$flag по идее boolin но строка через сеть получится напр. 'false'
+  //Метод для функционала cмены ролей admina и usera (т.к. не используем на сайте полноценную регистрацию)
+    public function flagadmin($flag){//$flag вроде boolin но строка(как в get.) через сеть получится напр.'false'
 	   $rol = 'admin';
 	   if(($flag == false)||($flag == 'false')){$rol = 'user';}
 	   $fileConf =	config_path() . '/products.php';

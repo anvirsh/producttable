@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StartController;
 use App\Http\Controllers\BaseController;
 
 /*
@@ -16,7 +17,9 @@ use App\Http\Controllers\BaseController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [DashboardController::class, 'index'])->name('products');
+//Route::get('/', [DashboardController::class, 'start'])->name('start');
+Route::get('/',function () { return Inertia::render('Start'); })->name('start');
+Route::get('products', [DashboardController::class, 'index'])->name('products');
 //Route::resource('products', 'ProductsController');
 //Route::get('product/edit', [ProductController::class, 'index']);
 //Route::get('products/create', [ProductController::class, 'index']);

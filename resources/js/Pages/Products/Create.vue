@@ -32,9 +32,9 @@
           </select> 
 		  </div>
 		  	  <label class="mt-2 mb-4 pr-10 select-none flex" >
-				<input name="mail" v-model="sendmail"  @click='flagmail()' class="mr-1" type="checkbox" />
+				<input name="sendmail" v-model="sendmail"  @click='flagmail()' class="mr-1" type="checkbox" />
 				<span class="text-sm" title="Задайте нужный email в конфигурации, в файле products.php">
-				  Сообщить на {{form.email}} при создании
+				  Сообщить на {{adresemail}} при создании
 				</span>
 			  </label>
 		  <p class="text-gray-500">Статус</p>
@@ -70,7 +70,6 @@ export default {
   remember: 'form',
 	  data() {
 		return {
-		  sendmail: false,
 		  form: this.$inertia.form({
 			article: null,
 			name: null,
@@ -78,7 +77,7 @@ export default {
 			color: null,
 			tdata: null,//!!!не даёт это поле назвать data
 			status: null,
-			email: this.adresemail,
+			sendmail: false,
 		  }),
 		}
 	  },
@@ -96,7 +95,7 @@ export default {
       this.form.post(this.route('products.store'))
     },
 	flagmail: function () {
-		if(this.sendmail == true){this.sendmail = false}else{this.sendmail = true}			
+		if(this.form.sendmail == true){this.form.sendmail = false}else{this.form.sendmail = true}			
 	}
   },
 }
